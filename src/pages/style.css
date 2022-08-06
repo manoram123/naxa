@@ -1,0 +1,149 @@
+.headerban {
+    background-color: #ffdc1c;
+}
+
+.fa-arrow-right {
+    visibility: hidden;
+    width: 0;
+    transition: 0.3s linear;
+}
+
+.action-text {
+    transition: 0.3s;
+}
+
+.action-text:hover {
+    transform: translateX(-5px);
+    color: #05f;
+}
+
+.action-text:hover .fa-arrow-right {
+    visibility: visible;
+    width: inherit;
+    transform: translateX(10px);
+    color: #05f;
+}
+
+.action-btn {
+    background-color: #ffdc1c;
+    width: 150px;
+    color: #05f;
+    transition: 0.3s;
+}
+
+.action-btn:hover {
+    background-color: #ffab00;
+}
+
+.nav-link {
+    font-size: 1.1em;
+    font-weight: 600;
+}
+
+.menu-i {
+    font-size: 1.1em;
+    font-weight: 600;
+    display: block;
+    z-index: 1;
+}
+
+.menu-i img {
+    height: 3ch;
+    width: 3ch;
+    object-fit: contain;
+}
+
+.menu-i:hover {
+    background-color: #ffdc1c;
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-me {
+    position: absolute;
+    width: 30ch;
+    background-color: #fff;
+    z-index: 1;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    visibility: hidden;
+}
+
+@keyframes anim {
+    0% {
+        visibility: visible;
+        opacity: 0.5;
+    }
+
+    100% {
+        visibility: visible;
+        opacity: 1;
+    }
+}
+
+.dropdown:hover>.dropdown-me {
+    animation: anim;
+    animation-fill-mode: forwards;
+    animation-duration: 0.5s;
+}
+
+.arrow {
+    height: 20px;
+    width: 20px;
+    transform: rotate(45deg);
+    background-color: #fff;
+    position: absolute;
+    z-index: -1;
+    left: 1.5ch;
+    top: -2ch;
+}
+
+.banner {
+    height: 30ch;
+}
+
+.c-card {
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.1);
+    margin-top: 8ch;
+    background: #fff;
+}
+
+.o-btn {
+    border: none;
+    outline: none;
+    font-size: 1.0rem;
+    color: rgb(112, 112, 112);
+    background: none;
+    transition: 0.3s;
+}
+
+.o-btn:hover {
+    background-color: #ffdc1c;
+    color: #05f;
+}
+
+.b-active {
+    background-color: #ffdc1c;
+    color: #05f;
+}
+
+.b-div {
+    width: 20%;
+}
+
+.serv-card {
+    position: relative;
+}
+
+.elem {
+    transition: 0.3s;
+}
+
+.elevated{
+    transform: translateY(-2ch);
+}
+
+.elem:hover {
+    transform: translateY(-3ch);
+}
