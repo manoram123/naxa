@@ -20,8 +20,8 @@ const Card = (props) => {
             </div>
           </div>
         </div>
-        <div className='' style={{ height: "45ch", position: "relative", background: props.data.color }}>
-          <img className='img img-fluid' style={{ width: "100%", position: "absolute", bottom: "0" }} src={`${props.data.data.photo}`} alt="" />
+        <div className='' style={{ position: "relative", background: props.data.color }}>
+          <img className='img img-fluid' style={{ width: "100%", }} src={`${props.data.data.photo}`} alt="" />
         </div>
       </div>
     </div>

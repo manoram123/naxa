@@ -60,6 +60,10 @@ const Services = () => {
                 <Card data={{ data: data.data[96], color: "#40db83", elevated: false }}></Card>
                 <Card data={{ data: data.data[97], color: "#ff9c9c", elevated: true }}></Card>
               </div>
+              <div className='d-flex flex-wrap container mb-5' data-aos="fade-up">
+                <Card data={{ data: data.data[98], color: "#bdbdbd", elevated: false }}></Card>
+                <Card data={{ data: data.data[99], color: "#ad0e28", elevated: true }}></Card>
+              </div>
             </div>
           </>
       }
