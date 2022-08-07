@@ -30,8 +30,8 @@ const Services = () => {
       {
         loading ?
           <>
-            <div className='d-flex align-items-center'>
-              <div class="spinner-border text-warning" role="status">
+            <div className='d-flex align-items-center justify-content-center py-5'>
+              <div class="spinner-border text-warning" role="status" style={{height: "5ch", width :"5ch", fontSize: "2rem"}}>
                 <span class="visually-hidden">Loading...</span>
               </div>
             </div>
