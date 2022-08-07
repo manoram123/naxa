@@ -84,7 +84,7 @@ const Home = () => {
 
             <div className='container mx-auto c-card px-4 py-4'>
                 <div className='row mx-auto'>
-                    <div className='col-md-12 d-flex flex-wrap justify-content-between' style={{flexWrap: "wrap"}}>
+                    <div className='col-md-12 d-flex flex-wrap justify-content-between' style={{ flexWrap: "wrap" }}>
                         <div className='b-div d-flex align-items-center mx-auto mx-md-0'>
                             <button className='w-100 o-btn b-active fw-bold text-md-start text-center px-4 py-3 mx-2'>Key Highlights</button>
                         </div>
@@ -125,54 +125,55 @@ const Home = () => {
                 <Services></Services>
             </div>
 
-            <div className='container text-light my-5 px-0 footer-box mx-2 mx-md-0' style={{ position: "relative" }}>
-                <div className='footer-card py-5'>
-                    <h1 className='text-center fw-bolder' style={{ fontSize: "2.6rem" }}>Seeking Collaboration?</h1>
-                    <p className='my-4 text-center w-50 mx-auto' style={{ fontSize: '1.3rem' }}>We constantly look forward to exploring ideas, collaborations, and technical innovations. If you want to partner with us, we are just an email away.</p>
+            <div className='mx-auto px-md-0 px-5'>
+                <div className='container text-light my-5 px-0 footer-box' style={{ position: "relative" }}>
+                    <div className='footer-card py-5'>
+                        <h1 className='text-center fw-bolder' style={{ fontSize: "2.6rem" }}>Seeking Collaboration?</h1>
+                        <p className='my-4 text-center w-50 mx-auto' style={{ fontSize: '1.3rem' }}>We constantly look forward to exploring ideas, collaborations, and technical innovations. If you want to partner with us, we are just an email away.</p>
 
-                    <div className='action-btn py-1 mx-auto mb-4'>
-                        <button className='btn d-block mx-auto action-text fw-bold'><span style={{ color: "#05f" }}>Lets Talk</span><i className='fa-solid fa-arrow-right'></i></button>
+                        <div className='action-btn py-1 mx-auto mb-4'>
+                            <button className='btn d-block mx-auto action-text fw-bold'><span style={{ color: "#05f" }}>Lets Talk</span><i className='fa-solid fa-arrow-right'></i></button>
+                        </div>
                     </div>
-                </div>
-            </div>
 
-            <footer className='mt-5'>
-                <div className='container-fluid'>
-                    <div className='d-flex container px-0 py-5'>
-                        <div className='w-50'>
-                            <Link className='navbar-brand' to=""><img src="https://naxa.com.np/792f5bf2487bd27628a54fe64a712630.png" style={{ height: "3.8ch" }} alt="" /></Link>
-                            <div>
-                                <p className='fw-bold my-2'>Naxa Pvt. Ltd.</p>
-                                <p className='my-4 text-secondary'>Do Cha Marg, Maharajgunj-3, Kathmandu, Nepal</p>
-                                <p className='my-4 text-secondary'>14416543</p>
-                                <p className='my-4 text-secondary'>info@naxa.com.np</p>
-                                <div className=''>
-                                    <i style={{ color: "#ffab00" }} className='me-3 fs-4 fa-brands fa-facebook-f'></i>
-                                    <i style={{ color: "#ffab00" }} className='me-3 fs-4 fa-brands fa-linkedin-in'></i>
-                                    <i style={{ color: "#ffab00" }} className='me-3 fs-4 fa-brands fa-twitter'></i>
-                                    <i style={{ color: "#ffab00" }} className='me-3 fs-4 fa-brands fa-instagram'></i>
+                </div>
+                <footer className='mt-5'>
+                    <div className='container-fluid'>
+                        <div className='row container mx-auto px-0 py-5'>
+                            <div className='col-md-6'>
+                                <Link className='navbar-brand' to=""><img src="https://naxa.com.np/792f5bf2487bd27628a54fe64a712630.png" style={{ height: "3.8ch" }} alt="" /></Link>
+                                <div>
+                                    <p className='fw-bold my-2'>Naxa Pvt. Ltd.</p>
+                                    <p className='my-4 text-secondary'>Do Cha Marg, Maharajgunj-3, Kathmandu, Nepal</p>
+                                    <p className='my-4 text-secondary'>14416543</p>
+                                    <p className='my-4 text-secondary'>info@naxa.com.np</p>
                                 </div>
                             </div>
-                        </div>
 
-                        <div className='w-50 d-flex px-5'>
-                            <div className=''>
-                                <p className='fw-bold'>Services</p>
-                                <p className='fw-bold links'>Portfolio</p>
+                            <div className='d-flex col-md-6'>
+                                <div className='' style={{width: "50%"}}>
+                                    <p className='fw-bold'>Services</p>
+                                    <p className='fw-bold links'>Portfolio</p>
+                                </div>
+
+                                <div className='ms-auto' style={{width: "50%"}}>
+                                    <p className='fw-bold'>Company</p>
+                                    <p className='fw-bold links'>About us</p>
+                                    <p className='fw-bold links'>Work with us</p>
+                                    <p className='fw-bold links'>Contact</p>
+                                </div>
                             </div>
 
-                            <div className='ms-auto'>
-                                <p className='fw-bold'>Company</p>
-                                <p className='fw-bold links'>About us</p>
-                                <p className='fw-bold links'>Work with us</p>
-                                <p className='fw-bold links'>Contact</p>
+                            <div className='' style={{width: "100%"}}>
+                                <i style={{ color: "#ffab00" }} className='me-3 fs-4 fa-brands fa-facebook-f'></i>
+                                <i style={{ color: "#ffab00" }} className='me-3 fs-4 fa-brands fa-linkedin-in'></i>
+                                <i style={{ color: "#ffab00" }} className='me-3 fs-4 fa-brands fa-twitter'></i>
+                                <i style={{ color: "#ffab00" }} className='me-3 fs-4 fa-brands fa-instagram'></i>
                             </div>
                         </div>
-
                     </div>
-                </div>
-            </footer>
-
+                </footer>
+            </div>
         </div>
     )
 }
