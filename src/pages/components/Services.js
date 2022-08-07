@@ -9,7 +9,6 @@ const Services = () => {
 
   const [loading, setLoading] = useState(true)
   const data = useSelector(state => state.data)
-  console.log(data)
 
   const dispatch = useDispatch()
 
