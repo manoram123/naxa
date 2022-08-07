@@ -125,11 +125,11 @@ const Home = () => {
                 </div>
             </div>
 
-            <div className='container mx-auto'>
+            <div className='container mx-auto px-0'>
                 <Services></Services>
             </div>
 
-            <div className='mx-auto px-md-0 px-5'>
+            <div className='mx-auto px-md-0 px-4'>
                 <div className='container text-light my-5 px-0 footer-box' style={{ position: "relative" }}>
                     <div className='footer-card py-5'>
                         <h1 className='text-center fw-bolder' style={{ fontSize: "2.6rem" }}>Seeking Collaboration?</h1>
