@@ -1,10 +1,8 @@
 import React, { useState } from 'react'
-import { MapContainer, TileLayer, Popup, Marker, useMap, useMapEvents } from 'react-leaflet'
+import { MapContainer, TileLayer, Popup, Marker, useMapEvents, LayersControl } from 'react-leaflet';
 import "leaflet/dist/leaflet.css"
 import L from 'leaflet';
 import axios from 'axios';
-import { useContext } from 'react';
-import { ListingContext } from '../../context/listingContext';
 import { useEffect } from 'react';
 
 function LocationMarker(props) {
@@ -16,15 +14,15 @@ function LocationMarker(props) {
         popupAnchor: [0, -35]
     });
 
-    const [listingData, setListingData] = useContext(ListingContext)
     const [position, setPosition] = useState(null)
     const [geolocation, setGeolocation] = useState()
+    const [listingData, setListingData] = useState({})
 
     // console.log(props.position)
 
-    useEffect(()=>{
+    useEffect(() => {
         console.log(props.property)
-    },[])
+    }, [])
     const map = useMapEvents({
         click(e) {
             setPosition(e.latlng)
@@ -51,11 +49,14 @@ const Map = () => {
 
     return (
         <MapContainer onClick={(e) => console.log(e)} center={position} zoom={13} scrollWheelZoom={true}>
+            {/* <TileLayer
+                attribution='<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>'
+                url="https://api.maptiler.com/maps/openstreetmap/{z}/{x}/{y}.jpg?key=A195qTayfZT9T3TORd9G"
+            />     */}
             <TileLayer
-                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                attribution = '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>'
+            url="https://api.maptiler.com/maps/openstreetmap/{z}/{x}/{y}.jpg?key=A195qTayfZT9T3TORd9G"
             />
-            {/* <p position={position}>Place</p> */}
             <LocationMarker></LocationMarker>
         </MapContainer>
     )

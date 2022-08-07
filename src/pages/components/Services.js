@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getData } from '../../actions/actions';
-import Card from '../components/Card'
+import Card from '../components/Card';
+import Aos from 'aos';
+import 'aos/dist/aos.css'
 
 const Services = () => {
 
@@ -19,12 +21,20 @@ const Services = () => {
     data.data !== undefined ? setLoading(false) : setLoading(true)
   }, [data.data])
 
+  useEffect(() => {
+    Aos.init({ duration: 1000 })
+  }, [])
+
   return (
     <div>
       {
         loading ?
           <>
-            <p>Loading...</p>
+            <div className='d-flex align-items-center'>
+              <div class="spinner-border text-warning" role="status">
+                <span class="visually-hidden">Loading...</span>
+              </div>
+            </div>
           </> :
           <>
             <div className='' style={{ marginTop: '20ch' }}>
@@ -35,7 +45,7 @@ const Services = () => {
                   )
                 })
               } */}
-              <div className='d-flex flex-wrap container mb-5'>
+              <div className='d-flex flex-wrap container mb-5' data-aos="fade-up">
                 <Card data={{ data: data.data[90], color: "#166df7", elevated: false }}></Card>
                 <Card data={{ data: data.data[91], color: "#a954b8", elevated: true }}></Card>
               </div>
@@ -43,11 +53,11 @@ const Services = () => {
                 <Card data={{ data: data.data[92], color: "#bdbdbd", elevated: false }}></Card>
                 <Card data={{ data: data.data[93], color: "#d44a86", elevated: true }}></Card>
               </div>
-              <div className='d-flex flex-wrap container mb-5'>
+              <div className='d-flex flex-wrap container mb-5' data-aos="fade-up">
                 <Card data={{ data: data.data[94], color: "#a29dc9", elevated: false }}></Card>
                 <Card data={{ data: data.data[95], color: "#ad0e28", elevated: true }}></Card>
               </div>
-              <div className='d-flex flex-wrap container mb-5'>
+              <div className='d-flex flex-wrap container mb-5' data-aos="fade-up">
                 <Card data={{ data: data.data[96], color: "#40db83", elevated: false }}></Card>
                 <Card data={{ data: data.data[97], color: "#ff9c9c", elevated: true }}></Card>
               </div>

@@ -8,6 +8,8 @@
     "@testing-library/user-event": "^13.5.0",
     "aos": "^2.3.4",
     "axios": "^0.27.2",
+    "leaflet-vector-tile-layer": "^0.8.0",
+    "mapbox-gl-leaflet": "^0.0.15",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-leaflet": "^4.0.1",

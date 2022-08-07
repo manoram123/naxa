@@ -140,10 +140,34 @@
     transition: 0.3s;
 }
 
-.elevated{
+.elevated {
     transform: translateY(-2ch);
 }
 
 .elem:hover {
     transform: translateY(-3ch);
+}
+
+.footer-box {
+    border-radius: 10px;
+    background: linear-gradient(59deg, rgb(0, 85, 255), rgb(0, 85, 255) 20%, rgb(0, 26, 203) 70%, rgb(0, 26, 203) 97%, rgb(0, 26, 203)) 0px 0px no-repeat padding-box padding-box transparent;
+}
+
+.footer-card {
+    /* position: absolute; */
+    /* width: 100%; */
+    border-radius: 10px;
+    background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyODAuMTAyIiBoZWlnaHQ9IjI4MC4xMDMiPjxkZWZzPjxsaW5lYXJHcmFkaWVudCBpZD0iYSIgeDE9Ii42MDgiIHkxPSIuNjYzIiB4Mj0iMS4yMTEiIHkyPSIuMzM0IiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjMDVmIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjMDAxYWNiIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PGcgZGF0YS1uYW1lPSJHcm91cCA0NDE0Ij48cGF0aCBkYXRhLW5hbWU9IlBhdGggMzYzNyIgZD0iTTE0MC4xNTcgMTM5Ljk0NkwwIDI4MC4xMDJsMTg2LjczNC05My4zNjdMMjgwLjEwMS4wMDF6IiBmaWxsPSIjMDVmIi8+PHBhdGggZGF0YS1uYW1lPSJQYXRoIDM2MzgiIGQ9Ik0yNC40MDggNDY5Ljg4NWw5My4zNjcgOTMuMzY2di0yODAuMXoiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDE2Mi4zMjcgLTI4My4xNDkpIiBmaWxsPSJ1cmwoI2EpIi8+PC9nPjwvc3ZnPg=='), url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI5NS40NDIiIGhlaWdodD0iMTk1LjQzMiI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJhIiB4MT0iLjU3IiB5MT0iLjA1IiB4Mj0iLjIyOCIgeTI9IjEuMDIiIGdyYWRpZW50VW5pdHM9Im9iamVjdEJvdW5kaW5nQm94Ij48c3RvcCBvZmZzZXQ9Ii4wMTMiIHN0b3AtY29sb3I9IiNmZmRjMWMiLz48c3RvcCBvZmZzZXQ9Ii44MDQiIHN0b3AtY29sb3I9IiNmYTAiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cGF0aCBkYXRhLW5hbWU9IlBhdGggMzY0MCIgZD0iTTgyLjE1MiAxMTIuNzQ2djE5Mi45NzdsOTQuMjQ4LTk2LjQ4OHoiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC04MS42NTIgLTExMS41MTkpIiBzdHJva2U9InJnYmEoMCwwLDAsMCkiIHN0cm9rZS1taXRlcmxpbWl0PSIxMCIgZmlsbD0idXJsKCNhKSIvPjwvc3ZnPg==');
+    background-position: right, -4ch 12ch;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.links {
+    transition: 0.3s;
+    font-size: 1.1rem;
+}
+
+.links:hover {
+    color: #ffab00;
 }
