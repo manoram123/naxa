@@ -18,18 +18,37 @@ function NewMap() {
     mapRef.current = map;
 
     const [layer, setLayer] = useState("province")
-    const [vis, setVis] = useState(false)
 
     const resolutions = [];
     for (let i = 0; i <= 8; ++i) {
         resolutions.push(156543.03392804097 / Math.pow(2, i * 2));
     }
 
-    function tileUrlFunction(tileCoord) {
-        console.log("haha")
-        console.log(layer)
+    function tileUrlFunctionA(tileCoord) {
         return (
-            `https://vectortile.naxa.com.np/federal/${layer}.mvt/?tile={z}/{x}/{y}`)
+            `https://vectortile.naxa.com.np/federal/province.mvt/?tile={z}/{x}/{y}`)
+            .replace('{z}', String(tileCoord[0] * 2 - 1))
+            .replace('{x}', String(tileCoord[1]))
+            .replace('{y}', String(tileCoord[2]))
+            .replace(
+                '{a-d}',
+                'abcd'.substr(((tileCoord[1] << tileCoord[0]) + tileCoord[2]) % 4, 1)
+            );
+    }
+    function tileUrlFunctionB(tileCoord) {
+        return (
+            `https://vectortile.naxa.com.np/federal/district.mvt/?tile={z}/{x}/{y}`)
+            .replace('{z}', String(tileCoord[0] * 2 - 1))
+            .replace('{x}', String(tileCoord[1]))
+            .replace('{y}', String(tileCoord[2]))
+            .replace(
+                '{a-d}',
+                'abcd'.substr(((tileCoord[1] << tileCoord[0]) + tileCoord[2]) % 4, 1)
+            );
+    }
+    function tileUrlFunctionC(tileCoord) {
+        return (
+            `https://vectortile.naxa.com.np/federal/municipality.mvt/?tile={z}/{x}/{y}`)
             .replace('{z}', String(tileCoord[0] * 2 - 1))
             .replace('{x}', String(tileCoord[1]))
             .replace('{y}', String(tileCoord[2]))
@@ -40,10 +59,12 @@ function NewMap() {
     }
 
     const baseLayer = new TileLayer({
+        title: "base",
         source: new XYZ({ url: 'https://api.maptiler.com/maps/openstreetmap/{z}/{x}/{y}.jpg?key=A195qTayfZT9T3TORd9G', attributions: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>' }),
     })
 
     const provinceLayer = new VectorTileLayer({
+        title: "province",
         visible: true,
         source: new VectorTileSource({
             format: new MVT(),
@@ -52,12 +73,38 @@ function NewMap() {
                 resolutions: resolutions,
                 tileSize: 512,
             }),
-            tileUrlFunction: tileUrlFunction,
+            tileUrlFunction: tileUrlFunctionA,
+        }),
+    })
+    const districtLayer = new VectorTileLayer({
+        title: "district",
+        visible: false,
+        source: new VectorTileSource({
+            format: new MVT(),
+            tileGrid: new TileGrid({
+                extent: getProjection('EPSG:3857').getExtent(),
+                resolutions: resolutions,
+                tileSize: 512,
+            }),
+            tileUrlFunction: tileUrlFunctionB,
+        }),
+    })
+    const municipalityLayer = new VectorTileLayer({
+        title: "municipality",
+        visible: false,
+        source: new VectorTileSource({
+            format: new MVT(),
+            tileGrid: new TileGrid({
+                extent: getProjection('EPSG:3857').getExtent(),
+                resolutions: resolutions,
+                tileSize: 512,
+            }),
+            tileUrlFunction: tileUrlFunctionC,
         }),
     })
 
 
-    var allLayers = new LayerGroup({layers: [baseLayer, provinceLayer]})
+    var allLayers = new LayerGroup({layers: [baseLayer, provinceLayer, districtLayer, municipalityLayer]})
 
     const initMap = () => {
         const initialMap = new Map({
@@ -76,8 +123,14 @@ function NewMap() {
     }, []);
 
     const changeLayer = (type) => {
-        setLayer(type)
-        initMap()
+        allLayers.getLayers().forEach(function(ele, ind, arr){
+            console.log(ele.get('title'))
+            const layer = ele.get('title')
+            if(layer === type){
+                console.log("lol")
+                ele.setVisible()
+            }
+        })
     }
 
     return (
@@ -85,15 +138,15 @@ function NewMap() {
             <div className='switcher'>
                 <button onClick={changeLayer.bind(this, "province")} className='btn p-0 mx-2'>
                     <img className='img img-thumbnail demo' style={{ objectFit: "cover", height: "8ch", width: "10ch" }} src={'/assets/province.png'} alt="" />
-                    <p className='text-start fw-bold'>Province</p>
+                    <p className='text-start fw-bold mb-0'>Province</p>
                 </button>
                 <button onClick={changeLayer.bind(this, "district")} className='btn p-0 mx-2'>
                     <img className='img img-thumbnail demo' style={{ objectFit: "cover", height: "8ch", width: "10ch" }} src={'/assets/district.png'} alt="" />
-                    <p className='text-start fw-bold'>District</p>
+                    <p className='text-start fw- mb-0'>District</p>
                 </button>
                 <button onClick={changeLayer.bind(this, "municipality")} className='btn p-0 mx-2'>
                     <img className='img img-thumbnail demo' style={{ objectFit: "cover", height: "8ch", width: "10ch" }} src={'/assets/municipality.png'} alt="" />
-                    <p className='text-start fw-bold'>Municipality</p>
+                    <p className='text-start fw-bold mb-0'>Municipality</p>
                 </button>
             </div>
         </div>
