@@ -176,8 +176,19 @@
     box-shadow: 0 0 25px rgba(0, 0, 0, 0.1);
 }
 
-.inp{
+.inp {
     border: none;
     outline: none;
     width: 100%;
+}
+
+.switcher {
+    position: absolute;
+    z-index: 1;
+    bottom: 5vh;
+    left: 5vw;
+}
+
+.demo {
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.3);
 }
