@@ -26,7 +26,7 @@ function NewMap() {
 
     function tileUrlFunctionA(tileCoord) {
         return (
-            `https://vectortile.naxa.com.np/federal/province.mvt/?tile={z}/{x}/{y}`)
+            `https://vectortile.naxa.com.np/federal/${layer}.mvt/?tile={z}/{x}/{y}`)
             .replace('{z}', String(tileCoord[0] * 2 - 1))
             .replace('{x}', String(tileCoord[1]))
             .replace('{y}', String(tileCoord[2]))
@@ -65,6 +65,7 @@ function NewMap() {
 
     const provinceLayer = new VectorTileLayer({
         title: "province",
+        id: "pr",
         visible: true,
         source: new VectorTileSource({
             format: new MVT(),
@@ -75,6 +76,7 @@ function NewMap() {
             }),
             tileUrlFunction: tileUrlFunctionA,
         }),
+        zIndex: "1"
     })
     const districtLayer = new VectorTileLayer({
         title: "district",
@@ -104,7 +106,7 @@ function NewMap() {
     })
 
 
-    var allLayers = new LayerGroup({layers: [baseLayer, provinceLayer, districtLayer, municipalityLayer]})
+    var allLayers = new LayerGroup({ layers: [baseLayer, provinceLayer, districtLayer, municipalityLayer] })
 
     const initMap = () => {
         const initialMap = new Map({
@@ -123,12 +125,11 @@ function NewMap() {
     }, []);
 
     const changeLayer = (type) => {
-        allLayers.getLayers().forEach(function(ele, ind, arr){
-            console.log(ele.get('title'))
+        allLayers.getLayers().forEach(function (ele, ind, arr) {
             const layer = ele.get('title')
-            if(layer === type){
-                console.log("lol")
-                ele.setVisible()
+            ele.setVisible(false)
+            if (layer === type) {
+                ele.setVisible(true)
             }
         })
     }
